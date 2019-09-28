@@ -1,3 +1,2 @@
 # ServidorNoticias
-
-nodemon index.js
+CLIENTE: https://github.com/BryanManzano2016/WebNoticias
