@@ -1,1 +1,3 @@
 # ServidorNoticias
+
+nodemon index.js
