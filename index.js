@@ -1,5 +1,7 @@
-const Mongo = require('./Mongo.js');
 const express = require('express');
+const Mongo = require('./Mongo.js');
+
+const MongoClient = require('mongodb').MongoClient;
 
 const app = express();
 const port = 3000;
@@ -10,25 +12,23 @@ crearCors(app);
 
 // methods http
 app.get('/leerPreNoticias', function (req, res) {
-	console.log('/leerPreNoticias');
 	mongoDb.leerPreNoticias(res);
 });
 
 app.get('/leerNoticia', function (req, res) {
-	console.log('/leerNoticia');
-	mongoDb.leerNoticia(res, req.query.id);
+	mongoDb.leerNoticia(res, req.query.id); 
 });
 
 app.post('/guardarNoticia', function (req, res) {
-  	// mongoDb.ingresarNoticas( req. );
+  	// FALTA
 });
 
 app.delete('/borrarNoticia', function (req, res) {
-	res.send('POST request to the homepage');
+	// FALTA
 });
 
 
-app.listen(port, () => console.log("OK"));
+app.listen(port, '192.168.100.33', () => console.log("OK"));
 
 // Inicia el protocolo para conectar diferentes servidores
 function crearCors(app) {

@@ -48,6 +48,18 @@ class Mongo {
 			client.close();
 		});
 	}	
+	// No utilizada
+	modificarNoticia() {
+		const client = new MongoClient(this.obtenerUrl(), { useNewUrlParser: true, 
+			useUnifiedTopology: true });
+		client.connect(err => {
+			client.db( this.nombreDB() ).collection( "noticias" ).
+				updateOne( { lugar: 'Manta' }, {
+					$set: { "imagen": "basura-29-09-2019"}
+				});
+			client.close();
+		});
+	}
 
 	obtenerUrl() { return "mongodb://localhost:27017/"; }
 	nombreDB(){ return "noticieroToday"; }
